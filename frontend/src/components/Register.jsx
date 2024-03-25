@@ -87,7 +87,6 @@
 
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const Register = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -105,7 +104,6 @@ const Register = ({ setAuth }) => {
     e.preventDefault();
     try {
       const body = { email, password, name };
-      console.log('Senha enviada para o servidor:', password); // Adicione esta linha para verificar o valor da senha
 
       const response = await fetch(
         "https://crud-node-react-3.onrender.com/authentication/register", // Alterado para refletir o novo endereço do backend
@@ -124,10 +122,9 @@ const Register = ({ setAuth }) => {
       if (parseRes.jwtToken) {
         localStorage.setItem("token", parseRes.jwtToken);
         setAuth(true);
-        toast.success("Register Successfully");
       } else {
         setAuth(false);
-        toast.error(parseRes.error); // Corrigido para exibir a mensagem de erro do servidor
+        console.error(parseRes.error); // Corrigido para exibir a mensagem de erro do servidor
       }
     } catch (err) {
       console.error(err.message);

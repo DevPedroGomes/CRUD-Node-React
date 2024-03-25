@@ -62,7 +62,6 @@
 // export default Dashboard;
 
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 
 //components
 
@@ -96,7 +95,7 @@ const Dashboard = ({ setAuth }) => {
     try {
       localStorage.removeItem("token");
       setAuth(false);
-      toast.success("Logout successfully");
+      console.log("Logout successfully");
     } catch (err) {
       console.error(err.message);
     }
