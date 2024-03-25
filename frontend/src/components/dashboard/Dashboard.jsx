@@ -75,7 +75,7 @@ const Dashboard = ({ setAuth }) => {
 
   const getProfile = async () => {
     try {
-      const res = await fetch("http://localhost:3003/dashboard/", {
+      const res = await fetch("https://crud-node-react-3.onrender.com/dashboard/", {
         method: "GET",
         headers: { jwt_token: localStorage.token }
       });
