@@ -1,10 +1,10 @@
 /** Database connection for CRUD. */
 
 const { Client } = require("pg");
-const { DB_URI } = require("./config");
+const { DATABASE_URI } = require("./config");
 
 const db = new Client({
-    connectionString: DB_URI // Utilizando a URI de conexão do ElephantSQL
+    connectionString: DATABASE_URI // Utilizando a URI de conexão do ElephantSQL
 });
 
 db.connect()

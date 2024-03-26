@@ -5,9 +5,10 @@
 require("dotenv").config();
 // require("Colors");
 
-const DB_URI = (process.env.NODE_ENV === "test")
+const DATABASE_URI = (process.env.NODE_ENV === "test")
   ? "crud_test"
-  : "crud";
+  : process.env.DATABASE_URI;
+
 
 const SECRET_KEY = process.env.SECRET_KEY || "secret-crud";
 const PORT =  +process.env.PORT || 3002;
@@ -21,11 +22,11 @@ BCRYPT_WORK_FACTOR = 12;
 // console.log("---");
 console.log("CRUD:");
 console.log("PORT:", PORT.toString());
-console.log("Database:", DB_URI);
+console.log("Database:", DATABASE_URI);
 console.log("---");
 
 module.exports = {
-  DB_URI,
+  DATABASE_URI,
   SECRET_KEY,
   PORT,
   BCRYPT_WORK_FACTOR,
