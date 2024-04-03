@@ -4,7 +4,7 @@ const { Client } = require("pg");
 const { DATABASE_URI } = require("./config");
 
 const db = new Client({
-    connectionString: DATABASE_URI // Utilizando a URI de conexão do ElephantSQL
+    connectionString: DATABASE_URI 
 });
 
 db.connect()

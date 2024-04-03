@@ -28,7 +28,7 @@ router.get("/", authorize, async (req, res) => {
 // CREATE A TODO
 router.post("/todos", authorize, async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const { description } = req.body;
     const todoId = uuid.v4(); // Gerar um novo UUID
     const newTodo = await db.query(
@@ -39,7 +39,7 @@ router.post("/todos", authorize, async (req, res) => {
     res.json(newTodo.rows[0]);
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ error: "Server error" }); // Responder com erro 500 em caso de falha
+    res.status(500).json({ error: "Server error" }); 
   }
 });
 

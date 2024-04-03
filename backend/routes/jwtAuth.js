@@ -5,7 +5,7 @@ const db = require("../db");
 const validInfo = require("../middleware/validInfo");
 const jwtGenerator = require("../jwtGenerator");
 const authorize = require("../middleware/authorize");
-//authorizeentication
+//"authorizeentication"
 
 router.post("/register", validInfo, async (req, res) => {
   const { email, name, password } = req.body;
@@ -16,7 +16,7 @@ router.post("/register", validInfo, async (req, res) => {
     ]);
 
     if (user.rows.length > 0) {
-      return res.status(401).json({ error: "User already exists" }); // Corrigido para retornar um objeto JSON com a mensagem de erro
+      return res.status(401).json({ error: "User already exists" }); 
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -32,7 +32,7 @@ router.post("/register", validInfo, async (req, res) => {
     return res.json({ jwtToken });
   } catch (err) {
     console.error(err.message);
-    return res.status(500).json({ error: "Server error" }); // Corrigido para retornar um objeto JSON com a mensagem de erro
+    return res.status(500).json({ error: "Server error" }); 
   }
 });
 

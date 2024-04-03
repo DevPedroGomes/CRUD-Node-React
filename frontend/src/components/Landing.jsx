@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'; // Corrigindo a importação do Link
+import { Link } from 'react-router-dom'; 
 
 function Landing()  {
   return (
